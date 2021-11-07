@@ -14,7 +14,7 @@ pipeline {
           nexusArtifactUploader artifacts: [
               [
                   artifactId: 'flipkart', classifier: '', 
-                  file: 'target/flipkart-1.0.war',
+                  file: 'target/flipkart.war',
                   type: 'war'
               ]
           ],
