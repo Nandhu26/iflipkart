@@ -24,7 +24,7 @@ pipeline {
           nexusVersion: 'nexus3', 
           protocol: 'http', 
           repository: 'iflipkart-release', 
-          version: '1.0'
+          version: '1.1'
         }
       }
     }
