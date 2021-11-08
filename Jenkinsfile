@@ -18,7 +18,7 @@ pipeline {
                   type: 'war'
               ]
           ],
-          credentialsId: '',
+          credentialsId: 'nexus3',
           groupId: 'com.flipkart',
           nexusUrl: '13.233.8.118:8081',
           nexusVersion: 'nexus3', 
