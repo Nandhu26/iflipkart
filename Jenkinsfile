@@ -20,7 +20,7 @@ pipeline {
           ],
           credentialsId: '',
           groupId: 'com.flipkart',
-          nexusUrl: '13.233.79.191:8081',
+          nexusUrl: '13.233.8.118:8081',
           nexusVersion: 'nexus3', 
           protocol: 'http', 
           repository: 'iflipkart-release', 
