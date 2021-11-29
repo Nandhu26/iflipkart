@@ -9,23 +9,13 @@ pipeline {
           sh 'mvn clean package'
         }
       }
-      stage('Uploading War To Nexus'){
-        steps{
-          nexusArtifactUploader artifacts: [
-              [
-                  artifactId: 'flipkart', classifier: '', 
-                  file: 'target/flipkart.war',
-                  type: 'war'
-              ]
-          ],
-          credentialsId: 'nexus3',
-          groupId: 'com.flipkart',
-          nexusUrl: '13.233.8.118:8081',
-          nexusVersion: 'nexus3', 
-          protocol: 'http', 
-          repository: 'iflipkart-release', 
-          version: '1.0'
-        }
-      }
+       stage ('Deploy-To-Tomcat') {
+            steps {
+           sshagent(['tomcat']) {
+                sh 'scp -o StrictHostKeyChecking=no /home/nandhu1/.jenkins/workspace/flipkart/target/flipkart.war nandhu@192.168.56.105:/home/nandhu/apache-tomcat-8.5.73/webapps/
+                sh 'ssh nandhu@192.168.56.104 "/home/nandhu/apache-tomcat-8.5.73/bin/startup.sh"'
+              }      
+           }       
+       }
     }
-}
+   }
